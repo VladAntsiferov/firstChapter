@@ -11,6 +11,7 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   public int max(int[] intArray) {
     logger.info("Calculating max of array");
     if (intArray == null || intArray.length == 0) {
+      logger.error("Array is null or empty");
       throw new IllegalArgumentException("Array is null or empty");
     }
 
@@ -27,6 +28,7 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   public int min(int[] intArray) {
     logger.info("Calculating min of array");
     if (intArray == null || intArray.length == 0) {
+      logger.info("Array is null or empty");
       throw new IllegalArgumentException("Array is null or empty");
     }
 
@@ -44,6 +46,7 @@ public class IntArrayOperationImpl implements IntArrayOperation {
     logger.info("Calculating sum of array");
 
     if (intArray == null || intArray.length == 0) {
+      logger.info("Array is null or empty");
       throw new IllegalArgumentException("Array is null or empty");
     }
 
@@ -58,6 +61,7 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   public int[] bubbleSort(int[] intArray) {
     logger.info("Sorting array using bubble sort");
     if (intArray == null || intArray.length == 0) {
+      logger.info("Array is null or empty");
       throw new IllegalArgumentException("Array is null or empty");
     }
 
@@ -81,6 +85,7 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   public int[] selectionSort(int[] intArray) {
     logger.info("Sorting array using selection sort");
     if (intArray == null || intArray.length == 0) {
+      logger.info("Array is null or empty");
       throw new IllegalArgumentException("Array is null or empty");
     }
 
