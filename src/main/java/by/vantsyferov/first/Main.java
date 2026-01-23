@@ -1,6 +1,6 @@
 package by.vantsyferov.first;
 
-import by.vantsyferov.first.entity.IntArray;
+
 import by.vantsyferov.first.factory.IntArrayFactory;
 import by.vantsyferov.first.factory.impl.IntArrayFactoryImpl;
 import by.vantsyferov.first.parser.CustomParserInt;

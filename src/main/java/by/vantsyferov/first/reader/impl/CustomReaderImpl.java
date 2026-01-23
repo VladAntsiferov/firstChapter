@@ -38,7 +38,7 @@ public class CustomReaderImpl implements CustomReaderInt {
       logger.error("No such file {}", e.getMessage());
       throw new NoSuchFileException("File not found");
     } catch (IOException e) {
-      logger.error("Error reading file {}",e.getMessage());
+      logger.error("Error reading file {}", e.getMessage());
       throw new RuntimeException("Error reading file");
     }
     return list;

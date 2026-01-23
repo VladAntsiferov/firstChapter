@@ -44,7 +44,7 @@ public final class IntArray {
     return array[index];
   }
 
-  public long getId(){
+  public long getId() {
     return id;
   }
 

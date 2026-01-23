@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -20,7 +19,7 @@ public class CustomParserImpl implements CustomParserInt {
   public int[] parseToIntArray(List<String> stringArray) {
     logger.info("Function parseToIntArray(Lust<String> line) called");
     final CustomValidatorImpl customValidator = new CustomValidatorImpl();
-    for (String stringArrayElement : stringArray){
+    for (String stringArrayElement : stringArray) {
       if (customValidator.validateLine(stringArrayElement)) {
         String[] parts = stringArrayElement.split(REGEX);
         for (String part : parts) {
