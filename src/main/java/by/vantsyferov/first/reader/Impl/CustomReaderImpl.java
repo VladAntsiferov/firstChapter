@@ -17,8 +17,8 @@ public class CustomReaderImpl implements CustomReaderInt {
   private static final String DEFAULT_FILENAME = "/data/input.txt";
 
   @Override
-  public List<String> readFile(String customFileName) throws NoSuchFileException{
-    logger.info("Function readFile called");
+  public List<String> readFile(String customFileName) throws NoSuchFileException {
+    logger.info("Function readFile(String customFileName) called");
     List<String> list;
     Path filePath = Paths.get(customFileName);
 
@@ -30,7 +30,11 @@ public class CustomReaderImpl implements CustomReaderInt {
     try {
       list = Files.readAllLines(filePath, StandardCharsets.UTF_8);
       logger.info("File {} read successfully", filePath);
-    } catch (NoSuchFileException e){
+      if (list.isEmpty()) {
+        logger.warn("File {} is empty", filePath);
+        throw new IOException("File is empty");
+      }
+    } catch (NoSuchFileException e) {
       logger.error(e.getMessage());
       throw new NoSuchFileException("File not found");
     } catch (IOException e) {
