@@ -4,19 +4,16 @@ package by.vantsyferov.first.entity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
-
 public final class IntArray {
   static Logger logger = LogManager.getLogger();
-  private int[] array;
   private final long id;
+  private int[] array;
 
   public IntArray(int[] array, int id) {
-    this.array = array;
+    this.array = array.clone();
     this.id = id;
     logger.info("IntArray created. Size: {}", array.length);
   }
-
 
   public void setArray(int[] newArray) {
     logger.info("setArray(int[] newArray called");

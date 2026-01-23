@@ -1,4 +1,4 @@
-package by.vantsyferov.first.reader.Impl;
+package by.vantsyferov.first.reader.impl;
 
 import by.vantsyferov.first.reader.CustomReaderInt;
 import org.apache.logging.log4j.LogManager;
