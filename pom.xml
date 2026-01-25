@@ -17,13 +17,19 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
+            <artifactId>log4j-core</artifactId>
             <version>2.12.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
+            <artifactId>log4j-api</artifactId>
             <version>2.12.4</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

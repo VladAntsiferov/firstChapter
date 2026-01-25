@@ -22,6 +22,6 @@ public class Main {
     CustomParserInt customParser = new CustomParserImpl();
     int[] intArray = factory.createIntArray(customParser.parseToIntArray(readerInt.readFile("124")));
 
-    System.out.println(intArrayOperation.max(intArray));
+    System.out.println(intArrayOperation.sum(intArray));
   }
 }
