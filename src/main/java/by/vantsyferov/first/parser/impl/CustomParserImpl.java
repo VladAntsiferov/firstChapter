@@ -17,7 +17,7 @@ public class CustomParserImpl implements CustomParserInt {
 
 
   @Override
-  public IntArray parseToIntArray(List<String> stringArray) {
+  public int[] parseToIntArray(List<String> stringArray) {
     logger.info("Function parseToIntArray(Lust<String> line) called");
     final CustomValidatorImpl customValidator = new CustomValidatorImpl();
     for (String stringArrayElement : stringArray) {
@@ -29,11 +29,10 @@ public class CustomParserImpl implements CustomParserInt {
       }
     }
 
-    int[] intArray = numbers.stream()
+    return  numbers.stream()
             .mapToInt(Integer::intValue)
             .toArray();
 
-    return new IntArray(intArray);
   }
 
 }

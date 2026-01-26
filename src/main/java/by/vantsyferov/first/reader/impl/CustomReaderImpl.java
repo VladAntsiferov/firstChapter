@@ -17,12 +17,12 @@ import java.util.List;
 public class CustomReaderImpl implements CustomReaderInt {
   static Logger logger = LogManager.getLogger();
   private static final String DEFAULT_FILENAME = "data/input.txt";
-  List<String> list;
 
   @Override
   public List<String> readFile(String customFileName) throws NoSuchFileException, ErrorReadingFileException, FileIsEmptyException {
     logger.info("Function readFile(String customFileName) called");
     Path filePath = Paths.get(customFileName);
+    List<String> list;
     if (!Files.exists(filePath)) {
       logger.error("File {} not found, fallback to {}", customFileName, DEFAULT_FILENAME);
       filePath = Path.of(DEFAULT_FILENAME);
@@ -50,6 +50,7 @@ public class CustomReaderImpl implements CustomReaderInt {
   @Override
   public List<String> readDefaultFile() throws NoSuchFileException, ErrorReadingFileException {
     logger.info("Function readDefaultFile() called");
+    List<String> list;
     try {
       list = Files.readAllLines(Path.of(DEFAULT_FILENAME), StandardCharsets.UTF_8);
       logger.info("Default file {} read successfully", DEFAULT_FILENAME);
