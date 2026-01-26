@@ -1,5 +1,6 @@
 package by.vantsyferov.first.parser.impl;
 
+import by.vantsyferov.first.entity.IntArray;
 import by.vantsyferov.first.parser.CustomParserInt;
 import by.vantsyferov.first.validator.impl.CustomValidatorImpl;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +17,7 @@ public class CustomParserImpl implements CustomParserInt {
 
 
   @Override
-  public int[] parseToIntArray(List<String> stringArray) {
+  public IntArray parseToIntArray(List<String> stringArray) {
     logger.info("Function parseToIntArray(Lust<String> line) called");
     final CustomValidatorImpl customValidator = new CustomValidatorImpl();
     for (String stringArrayElement : stringArray) {
@@ -28,9 +29,11 @@ public class CustomParserImpl implements CustomParserInt {
       }
     }
 
-    return numbers.stream()
+    int[] intArray = numbers.stream()
             .mapToInt(Integer::intValue)
             .toArray();
+
+    return new IntArray(intArray, 1);
   }
 
 }

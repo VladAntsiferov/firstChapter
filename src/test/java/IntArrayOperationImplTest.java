@@ -1,15 +1,14 @@
 import by.vantsyferov.first.service.IntArrayOperation;
 import by.vantsyferov.first.service.impl.IntArrayOperationImpl;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 
 public class IntArrayOperationImplTest {
   IntArrayOperation intArrayOperation = new IntArrayOperationImpl();
 
   @Test
-  public void maxShouldReturn() {
+  void maxShouldReturn() {
     int[] array = {1, 5, 3, 9, 2};
 
     int result = intArrayOperation.max(array);
@@ -18,21 +17,21 @@ public class IntArrayOperationImplTest {
   }
 
   @Test
-  public void maxShouldThrowExceptionWhenArrayIsNull() {
+  void maxShouldThrowExceptionWhenArrayIsNull() {
     assertThrows(IllegalArgumentException.class, () ->
             intArrayOperation.max(null)
     );
   }
 
   @Test
-  public void maxShouldThrowExceptionWhenArrayIsEmpty() {
+  void maxShouldThrowExceptionWhenArrayIsEmpty() {
     assertThrows(IllegalArgumentException.class, () ->
             intArrayOperation.max(new int[]{})
     );
   }
 
   @Test
-  public void minShouldReturn() {
+  void minShouldReturn() {
     int[] array = {9, 7, 1, 5, 2};
 
     int result = intArrayOperation.min(array);
@@ -41,35 +40,86 @@ public class IntArrayOperationImplTest {
   }
 
   @Test
-  public void minShouldThrowExceptionWhenArrayIsNull() {
-    assertThrows(IllegalArgumentException.class, () ->
-            intArrayOperation.min(null)
+  void minShouldThrowExceptionWhenArrayIsNull() {
+    assertThrows(IllegalArgumentException.class,
+            () -> intArrayOperation.min(null)
     );
   }
 
   @Test
-  public void minShouldThrowExceptionWhenArrayIsEmpty() {
-    assertThrows(IllegalArgumentException.class, () ->
-            intArrayOperation.min(new int[]{})
+  void minShouldThrowExceptionWhenArrayIsEmpty() {
+    assertThrows(IllegalArgumentException.class,
+            () -> intArrayOperation.min(new int[]{})
     );
   }
 
   @Test
-  public void sumShouldReturn() {
+  void sumShouldReturn() {
     int[] array = {9, 7, 1, 5, 2};
 
     double result = intArrayOperation.sum(array);
 
-    assertEquals(24.0, result,0.00001);
+    assertEquals(24.0, result, 0.00001);
   }
 
   @Test
-  public void selectionSortShouldReturn() {
+  void selectionSortShouldReturn() {
+    int[] input = {9, 7, 1, 5, 2};
+    int[] result = intArrayOperation.selectionSort(input);
 
+    assertArrayEquals(result, new int[]{1, 2, 5, 7, 9});
   }
 
   @Test
-  public void bubbleSortShouldReturn() {
+  void bubbleSortShouldReturn() {
+    int[] input = {9, 7, 1, 5, 2};
+    int[] result = intArrayOperation.bubbleSort(input);
 
+    assertArrayEquals(result, new int[]{1, 2, 5, 7, 9});
   }
+
+  @Test
+  void selectionSortShouldThrowExceptionWhenArrayIsEmpty() {
+    int[] input = {};
+
+    IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> intArrayOperation.selectionSort(input)
+    );
+
+    assertEquals("Array is null or empty", exception.getMessage());
+  }
+
+  @Test
+  void bubbleSortShouldThrowExceptionWhenArrayIsEmpty() {
+    int[] input = {};
+
+    IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> intArrayOperation.bubbleSort(input)
+    );
+
+    assertEquals("Array is null or empty", exception.getMessage());
+  }
+
+  @Test
+  void selectionSortShouldThrowExceptionWhenArrayIsNull() {
+    IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> intArrayOperation.selectionSort(null)
+    );
+
+    assertEquals("Array is null or empty", exception.getMessage());
+  }
+
+  @Test
+  void bubbleSortShouldThrowExceptionWhenArrayIsNull() {
+    IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> intArrayOperation.selectionSort(null)
+    );
+
+    assertEquals("Array is null or empty", exception.getMessage());
+  }
+
 }

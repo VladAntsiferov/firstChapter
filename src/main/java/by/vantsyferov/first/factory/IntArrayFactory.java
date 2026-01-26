@@ -1,11 +1,14 @@
 package by.vantsyferov.first.factory;
 
+import by.vantsyferov.first.entity.IntArray;
 import by.vantsyferov.first.exception.FactoryIllegalSizeException;
 
 public interface IntArrayFactory {
 
-  int[] createRandomIntArray(int size) throws FactoryIllegalSizeException;
+  IntArray createRandomIntArray(int size, long id) throws FactoryIllegalSizeException;
 
-  int[] createIntArray(int[] intArray);
+  IntArray createIntArray(int[] intArray);
+
+  IntArray createEmptyArray();
 
 }

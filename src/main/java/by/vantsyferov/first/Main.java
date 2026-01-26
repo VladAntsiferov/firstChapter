@@ -1,6 +1,9 @@
 package by.vantsyferov.first;
 
 
+import by.vantsyferov.first.entity.IntArray;
+import by.vantsyferov.first.exception.ErrorReadingFileException;
+import by.vantsyferov.first.exception.FileIsEmptyException;
 import by.vantsyferov.first.factory.IntArrayFactory;
 import by.vantsyferov.first.factory.impl.IntArrayFactoryImpl;
 import by.vantsyferov.first.parser.CustomParserInt;
@@ -17,11 +20,7 @@ public class Main {
   static IntArrayOperation intArrayOperation = new IntArrayOperationImpl();
 
 
-  static void main() throws IOException {
-    CustomReaderInt readerInt = new CustomReaderImpl();
-    CustomParserInt customParser = new CustomParserImpl();
-    int[] intArray = factory.createIntArray(customParser.parseToIntArray(readerInt.readFile("124")));
-
-    System.out.println(intArrayOperation.sum(intArray));
+  static void main() throws IOException, ErrorReadingFileException, FileIsEmptyException {
+    IntArray intArray = factory.createIntArray(new int[]{});
   }
 }

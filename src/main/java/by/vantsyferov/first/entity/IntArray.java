@@ -9,7 +9,7 @@ public final class IntArray {
   private final long id;
   private int[] array;
 
-  public IntArray(int[] array, int id) {
+  public IntArray(int[] array, long id) {
     this.array = array.clone();
     this.id = id;
     logger.info("IntArray created. Size: {}", array.length);
@@ -17,10 +17,6 @@ public final class IntArray {
 
   public void setArray(int[] newArray) {
     logger.info("setArray(int[] newArray called");
-    if (newArray == null) {
-      logger.error("setArray called with null");
-      throw new IllegalArgumentException("Array cannot be null");
-    }
     this.array = newArray.clone();
     logger.info("IntArray setArray called, new size: {}", array.length);
   }
