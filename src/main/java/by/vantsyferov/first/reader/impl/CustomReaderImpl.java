@@ -18,6 +18,7 @@ public class CustomReaderImpl implements CustomReaderInt {
   static Logger logger = LogManager.getLogger();
   private static final String DEFAULT_FILENAME = "data/input.txt";
   List<String> list;
+
   @Override
   public List<String> readFile(String customFileName) throws NoSuchFileException, ErrorReadingFileException, FileIsEmptyException {
     logger.info("Function readFile(String customFileName) called");
@@ -39,7 +40,7 @@ public class CustomReaderImpl implements CustomReaderInt {
     } catch (IOException e) {
       logger.error("Error reading file {}", e.getMessage());
       throw new ErrorReadingFileException("Error reading file");
-    } catch (FileIsEmptyException e){
+    } catch (FileIsEmptyException e) {
       logger.error("File {} is empty", e.getMessage());
       throw new FileIsEmptyException("File is empty");
     }

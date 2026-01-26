@@ -34,7 +34,7 @@ public class IntArrayFactoryImpl implements IntArrayFactory {
   }
 
   @Override
-  public IntArray createEmptyArray(){
+  public IntArray createEmptyArray() {
     return new IntArray(new int[]{});
   }
 }

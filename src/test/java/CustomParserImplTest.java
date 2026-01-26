@@ -21,7 +21,7 @@ public class CustomParserImplTest {
     );
     IntArray intArray = customParser.parseToIntArray(input);
     int[] result = intArray.getArray();
-    assertArrayEquals(result,new int[]{1,2,3,4,5});
+    assertArrayEquals(result, new int[]{1, 2, 3, 4, 5});
   }
 
   @Test
@@ -42,7 +42,7 @@ public class CustomParserImplTest {
   }
 
   @Test
-  void shouldReturnEmptyArrayForEmptyInput() throws IOException{
+  void shouldReturnEmptyArrayForEmptyInput() throws IOException {
     List<String> input = List.of();
 
     IntArray intArray = customParser.parseToIntArray(input);

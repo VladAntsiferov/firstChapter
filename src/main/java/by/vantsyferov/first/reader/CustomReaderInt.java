@@ -10,5 +10,6 @@ import java.util.List;
 public interface CustomReaderInt {
 
   List<String> readFile(String customFileName) throws NoSuchFileException, ErrorReadingFileException, FileIsEmptyException;
+
   List<String> readDefaultFile() throws NoSuchFileException, ErrorReadingFileException;
 }

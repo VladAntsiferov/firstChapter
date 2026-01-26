@@ -16,5 +16,5 @@ public class FileIsEmptyException extends Exception {
   FileIsEmptyException(String message, Throwable cause) {
     super(message, cause);
   }
-  }
+}
 
