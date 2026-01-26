@@ -6,12 +6,13 @@ import org.apache.logging.log4j.Logger;
 
 public final class IntArray {
   static Logger logger = LogManager.getLogger();
-  private final long id;
+  private long id;
   private int[] array;
+  private static long idCounter = 0;
 
-  public IntArray(int[] array, long id) {
+  public IntArray(int[] array) {
     this.array = array.clone();
-    this.id = id;
+    this.id = getNextId();
     logger.info("IntArray created. Size: {}", array.length);
   }
 
@@ -40,8 +41,16 @@ public final class IntArray {
     return array[index];
   }
 
+  private static synchronized long getNextId() {
+    return ++idCounter;
+  }
+
   public long getId() {
     return id;
+  }
+
+  public void setId(long id){
+    this.id = id;
   }
 
 }

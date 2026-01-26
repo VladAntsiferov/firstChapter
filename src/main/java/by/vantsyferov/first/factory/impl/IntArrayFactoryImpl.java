@@ -23,18 +23,18 @@ public class IntArrayFactoryImpl implements IntArrayFactory {
     int[] randomArray = ThreadLocalRandom.current()
             .ints(size, 0, 100)
             .toArray();
-    return new IntArray(randomArray, id);
+    return new IntArray(randomArray);
   }
 
 
   @Override
   public IntArray createIntArray(int[] intArray) {
     logger.info("Function createIntArray(int[] intArray) called");
-    return new IntArray(intArray, 1);
+    return new IntArray(intArray);
   }
 
   @Override
   public IntArray createEmptyArray(){
-    return new IntArray(new int[]{},0);
+    return new IntArray(new int[]{});
   }
 }

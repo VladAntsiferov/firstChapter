@@ -33,7 +33,7 @@ public class CustomParserImpl implements CustomParserInt {
             .mapToInt(Integer::intValue)
             .toArray();
 
-    return new IntArray(intArray, 1);
+    return new IntArray(intArray);
   }
 
 }
