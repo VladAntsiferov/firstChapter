@@ -5,6 +5,7 @@ import by.vantsyferov.first.entity.IntArray;
 import by.vantsyferov.first.factory.IntArrayFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import util.IdGeneratorUtil;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -23,18 +24,18 @@ public class IntArrayFactoryImpl implements IntArrayFactory {
     int[] randomArray = ThreadLocalRandom.current()
             .ints(size, 0, 100)
             .toArray();
-    return new IntArray(randomArray);
+    return new IntArray(randomArray, IdGeneratorUtil.generateId());
   }
 
 
   @Override
   public IntArray createIntArray(int[] intArray) {
     logger.info("Function createIntArray(int[] intArray) called");
-    return new IntArray(intArray);
+    return new IntArray(intArray, IdGeneratorUtil.generateId());
   }
 
   @Override
   public IntArray createEmptyArray() {
-    return new IntArray(new int[]{});
+    return new IntArray(new int[]{},IdGeneratorUtil.generateId());
   }
 }

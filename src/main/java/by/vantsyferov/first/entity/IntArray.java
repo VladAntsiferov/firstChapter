@@ -8,11 +8,10 @@ public final class IntArray {
   static Logger logger = LogManager.getLogger();
   private long id;
   private int[] array;
-  private static long idCounter = 0;
 
-  public IntArray(int[] array) {
+  public IntArray(int[] array, long id) {
     this.array = array.clone();
-    this.id = getNextId();
+    this.id = id;
     logger.info("IntArray created. Size: {}", array.length);
   }
 
@@ -39,10 +38,6 @@ public final class IntArray {
     }
     logger.info("IntArray getByIndex(int index) initialized");
     return array[index];
-  }
-
-  private static synchronized long getNextId() {
-    return ++idCounter;
   }
 
   public long getId() {

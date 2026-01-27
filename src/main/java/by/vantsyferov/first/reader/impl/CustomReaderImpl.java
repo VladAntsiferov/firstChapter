@@ -20,7 +20,7 @@ public class CustomReaderImpl implements CustomReaderInt {
   @Override
   public List<String> readFile(String customFileName) throws ReadingFileException {
     logger.info("Function readFile(String customFileName) called");
-    List<String> list;
+    List<String> list = List.of();
     Path filePath = Paths.get(customFileName);
     if (!Files.exists(filePath)) {
       logger.error("File {} not found, fallback to {}", customFileName, DEFAULT_FILENAME);
@@ -29,6 +29,8 @@ public class CustomReaderImpl implements CustomReaderInt {
     try {
       list = Files.readAllLines(filePath, StandardCharsets.UTF_8);
       logger.info("File {} read successfully", filePath);
+    } catch (NoSuchFileException e){
+      logger.error("No such file: {}", e.getMessage());
     } catch (IOException e) {
       logger.error("Error reading file {}", e.getMessage());
       throw new ReadingFileException("Error reading file");
