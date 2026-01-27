@@ -7,13 +7,4 @@ import java.util.Map;
 
 public interface IntArrayRepositoryInt {
 
-  void save(IntArray intArray);
-
-  IntArray getById(long id);
-
-  Map<Long, IntArray> getAll();
-
-  void deleteById(long id);
-
-  void clearAll();
 }

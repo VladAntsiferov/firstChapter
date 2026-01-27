@@ -12,28 +12,26 @@ import java.util.List;
 
 public class CustomParserImpl implements CustomParserInt {
   static Logger logger = LogManager.getLogger();
-  private static final String REGEX = "\\s*,\\s*";
-  List<Integer> numbers = new ArrayList<>();
+  private static final String COMMA_SEPARATION_REGEX = "\\s*,\\s*";
 
 
   @Override
-  public IntArray parseToIntArray(List<String> stringArray) {
+  public int[] parseToIntArray(List<String> stringArray) {
     logger.info("Function parseToIntArray(Lust<String> line) called");
+    List<Integer> numbers = new ArrayList<>();
     final CustomValidatorImpl customValidator = new CustomValidatorImpl();
     for (String stringArrayElement : stringArray) {
       if (customValidator.validateLine(stringArrayElement)) {
-        String[] parts = stringArrayElement.split(REGEX);
+        String[] parts = stringArrayElement.split(COMMA_SEPARATION_REGEX);
         for (String part : parts) {
           numbers.add(Integer.parseInt(part));
         }
       }
     }
 
-    int[] intArray = numbers.stream()
+    return numbers.stream()
             .mapToInt(Integer::intValue)
             .toArray();
-
-    return new IntArray(intArray);
   }
 
 }

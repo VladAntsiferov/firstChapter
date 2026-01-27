@@ -6,5 +6,5 @@ import java.io.IOException;
 import java.util.List;
 
 public interface CustomParserInt {
-  IntArray parseToIntArray(List<String> listArray) throws IOException;
+  int[] parseToIntArray(List<String> listArray);
 }
