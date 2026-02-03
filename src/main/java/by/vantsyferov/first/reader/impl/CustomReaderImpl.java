@@ -28,7 +28,7 @@ public class CustomReaderImpl implements CustomReaderInt {
     }
     try {
       list = Files.readAllLines(filePath, StandardCharsets.UTF_8);
-      logger.info("File {} read successfully", filePath);
+      logger.info("File '{}' read successfully", filePath);
     } catch (NoSuchFileException e){
       logger.error("No such file: {}", e.getMessage());
     } catch (IOException e) {
@@ -44,9 +44,9 @@ public class CustomReaderImpl implements CustomReaderInt {
     List<String> list;
     try {
       list = Files.readAllLines(Path.of(DEFAULT_FILENAME), StandardCharsets.UTF_8);
-      logger.info("Default file {} read successfully", DEFAULT_FILENAME);
+      logger.info("Default file '{}' read successfully", DEFAULT_FILENAME);
     } catch (IOException e) {
-      logger.error("Error reading default file {}", e.getMessage());
+      logger.error("Error reading default file '{}'", e.getMessage());
       throw new ReadingFileException("Error reading default file");
     }
     return list;

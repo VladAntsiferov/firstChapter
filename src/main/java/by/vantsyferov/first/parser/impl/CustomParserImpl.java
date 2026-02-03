@@ -21,7 +21,7 @@ public class CustomParserImpl implements CustomParserInt {
     List<Integer> numbers = new ArrayList<>();
     final CustomValidatorImpl customValidator = new CustomValidatorImpl();
     for (String stringArrayElement : stringArray) {
-      if (customValidator.validateLine(stringArrayElement)) {
+      if (customValidator.validateLineInt(stringArrayElement)) {
         String[] parts = stringArrayElement.split(COMMA_SEPARATION_REGEX);
         for (String part : parts) {
           numbers.add(Integer.parseInt(part));
