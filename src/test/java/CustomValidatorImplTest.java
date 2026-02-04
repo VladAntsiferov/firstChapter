@@ -12,12 +12,12 @@ public class CustomValidatorImplTest {
   @Test
   void shouldValidateString() {
     String input = "1, 2,     3";
-    assertTrue(customValidator.validateLine(input));
+    assertTrue(customValidator.validateLineInt(input));
   }
 
   @Test
   void shouldNotValidateStringWhenStringNotNumbers() {
     String input = "asd";
-    assertFalse(customValidator.validateLine(input));
+    assertFalse(customValidator.validateLineInt(input));
   }
 }

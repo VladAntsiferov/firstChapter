@@ -3,10 +3,10 @@ package by.vantsyferov.first.validator.impl;
 import by.vantsyferov.first.validator.CustomValidatorInt;
 
 public class CustomValidatorImpl implements CustomValidatorInt {
-  private static final String REGEX = "\\d+(,\\s*\\d+)*";
+  private static final String INTEGER_LINE_VALIDATION_REGEX = "\\d+(,\\s*\\d+)*";
 
   @Override
-  public boolean validateLine(String line) {
-    return line != null && line.matches(REGEX);
+  public boolean validateLineInt(String line) {
+    return line != null && line.matches(INTEGER_LINE_VALIDATION_REGEX);
   }
 }

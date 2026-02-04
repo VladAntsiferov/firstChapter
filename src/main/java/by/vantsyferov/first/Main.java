@@ -1,12 +1,9 @@
 package by.vantsyferov.first;
 
 
+import by.vantsyferov.first.entity.IntArray;
 import by.vantsyferov.first.factory.IntArrayFactory;
 import by.vantsyferov.first.factory.impl.IntArrayFactoryImpl;
-import by.vantsyferov.first.parser.CustomParserInt;
-import by.vantsyferov.first.parser.impl.CustomParserImpl;
-import by.vantsyferov.first.reader.CustomReaderInt;
-import by.vantsyferov.first.reader.impl.CustomReaderImpl;
 import by.vantsyferov.first.service.IntArrayOperation;
 import by.vantsyferov.first.service.impl.IntArrayOperationImpl;
 
@@ -18,6 +15,6 @@ public class Main {
 
 
   static void main() throws IOException {
-
+    IntArray intArray = factory.createIntArray(new int[]{});
   }
 }

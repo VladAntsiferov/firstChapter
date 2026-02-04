@@ -14,26 +14,24 @@ public class CustomParserImplTest {
   CustomParserInt customParser = new CustomParserImpl();
 
   @Test
-  void shouldParseValidStringsToIntArray() throws IOException {
+  void shouldParseValidStringsToIntArray() {
     List<String> input = List.of(
             "1,2,3",
             "4,5"
     );
-    IntArray intArray = customParser.parseToIntArray(input);
-    int[] result = intArray.getArray();
+    int[] result = customParser.parseToIntArray(input);
     assertArrayEquals(result, new int[]{1, 2, 3, 4, 5});
   }
 
   @Test
-  void shouldIgnoreInvalidLines() throws IOException {
+  void shouldIgnoreInvalidLines() {
     List<String> input = List.of(
             "1,2",
             "abc",
             "3,4"
     );
 
-    IntArray intArray = customParser.parseToIntArray(input);
-    int[] result = intArray.getArray();
+    int[] result = customParser.parseToIntArray(input);
 
     assertArrayEquals(
             new int[]{1, 2, 3, 4},
@@ -42,13 +40,11 @@ public class CustomParserImplTest {
   }
 
   @Test
-  void shouldReturnEmptyArrayForEmptyInput() throws IOException {
+  void shouldReturnEmptyArrayForEmptyInput() {
     List<String> input = List.of();
 
-    IntArray intArray = customParser.parseToIntArray(input);
-    int[] result = intArray.getArray();
+    int[] result = customParser.parseToIntArray(input);
 
-    assertNotNull(result);
     assertEquals(0, result.length);
   }
 }

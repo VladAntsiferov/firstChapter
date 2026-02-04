@@ -5,12 +5,14 @@ import by.vantsyferov.first.entity.IntArray;
 import by.vantsyferov.first.factory.IntArrayFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import by.vantsyferov.first.util.IdGeneratorUtil;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class IntArrayFactoryImpl implements IntArrayFactory {
 
   static Logger logger = LogManager.getLogger();
+
 
   @Override
   public IntArray createRandomIntArray(int size, long id) throws FactoryIllegalSizeException {
@@ -23,18 +25,18 @@ public class IntArrayFactoryImpl implements IntArrayFactory {
     int[] randomArray = ThreadLocalRandom.current()
             .ints(size, 0, 100)
             .toArray();
-    return new IntArray(randomArray);
+    return new IntArray(randomArray, IdGeneratorUtil.incrementIntArrayId());
   }
 
 
   @Override
   public IntArray createIntArray(int[] intArray) {
     logger.info("Function createIntArray(int[] intArray) called");
-    return new IntArray(intArray);
+    return new IntArray(intArray, IdGeneratorUtil.incrementIntArrayId());
   }
 
   @Override
   public IntArray createEmptyArray() {
-    return new IntArray(new int[]{});
+    return new IntArray(new int[]{},IdGeneratorUtil.incrementIntArrayId());
   }
 }
