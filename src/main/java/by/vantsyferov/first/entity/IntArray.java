@@ -81,4 +81,8 @@ public final class IntArray {
             ", array=" + Arrays.toString(array) +
             '}';
   }
+
+  public int getFirstElement() {
+    return array[0];
+  }
 }

@@ -22,7 +22,6 @@ public class CustomReaderImpl implements CustomReaderInt {
     logger.info("Function readFile(String customFileName) called");
     List<String> list = List.of();
     Path filePath = Paths.get(customFileName);
-    List<String> list;
     if (!Files.exists(filePath)) {
       logger.error("File {} not found, fallback to {}", customFileName, DEFAULT_FILENAME);
       filePath = Path.of(DEFAULT_FILENAME);
