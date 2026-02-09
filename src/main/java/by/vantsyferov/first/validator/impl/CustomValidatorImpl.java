@@ -7,6 +7,6 @@ public class CustomValidatorImpl implements CustomValidatorInt {
 
   @Override
   public boolean validateLineInt(String line) {
-    return line != null && line.matches(INTEGER_LINE_VALIDATION_REGEX);
+    return (line != null && line.matches(INTEGER_LINE_VALIDATION_REGEX));
   }
 }
