@@ -1,9 +1,9 @@
-import by.vantsyferov.first.entity.IntArray;
+package test.vantsyferov.first.parser;
+
 import by.vantsyferov.first.parser.CustomParserInt;
 import by.vantsyferov.first.parser.impl.CustomParserImpl;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +28,7 @@ public class CustomParserImplTest {
     List<String> input = List.of(
             "1,2",
             "abc",
-            "3,4"
+            "3, 4"
     );
 
     int[] result = customParser.parseToIntArray(input);

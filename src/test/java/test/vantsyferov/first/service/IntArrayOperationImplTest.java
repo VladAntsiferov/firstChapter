@@ -1,3 +1,6 @@
+package test.vantsyferov.first.service;
+
+import by.vantsyferov.first.exception.CustomIntArrayException;
 import by.vantsyferov.first.service.IntArrayOperation;
 import by.vantsyferov.first.service.impl.IntArrayOperationImpl;
 import org.junit.jupiter.api.Test;
@@ -54,7 +57,7 @@ public class IntArrayOperationImplTest {
   }
 
   @Test
-  void sumShouldReturn() {
+  void sumShouldReturn() throws CustomIntArrayException {
     int[] array = {9, 7, 1, 5, 2};
 
     double result = intArrayOperation.sum(array);
@@ -63,7 +66,7 @@ public class IntArrayOperationImplTest {
   }
 
   @Test
-  void selectionSortShouldReturn() {
+  void selectionSortShouldReturn() throws CustomIntArrayException {
     int[] input = {9, 7, 1, 5, 2};
     int[] result = intArrayOperation.selectionSort(input);
 
@@ -71,7 +74,7 @@ public class IntArrayOperationImplTest {
   }
 
   @Test
-  void bubbleSortShouldReturn() {
+  void bubbleSortShouldReturn() throws CustomIntArrayException {
     int[] input = {9, 7, 1, 5, 2};
     int[] result = intArrayOperation.bubbleSort(input);
 

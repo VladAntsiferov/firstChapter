@@ -1,3 +1,5 @@
+package test.vantsyferov.first.reader;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -31,8 +33,5 @@ public class CustomReaderImplTest {
     List<String> result = customReader.readFile("missing.txt");
 
     assertEquals(defaultFile, result);
-  }
-
-  @Test void shouldThrowNoSuchFileExceptionIfFileNotExists() throws NoSuchFileException, ReadingFileException {
   }
 }

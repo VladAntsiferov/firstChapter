@@ -2,6 +2,7 @@ package by.vantsyferov.first.entity;
 
 
 import by.vantsyferov.first.exception.CustomIntArrayException;
+import by.vantsyferov.first.observer.impl.IntArrayObserverImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,6 +13,7 @@ public final class IntArray {
   static Logger logger = LogManager.getLogger();
   private long id;
   private int[] array;
+  private IntArrayObserverImpl observer;
 
   public IntArray(int[] array, long id) {
     this.array = array.clone();
@@ -22,6 +24,7 @@ public final class IntArray {
   public void setArray(int[] newArray) {
     logger.info("setArray(int[] newArray called");
     this.array = newArray.clone();
+    notifyObserver();
   }
 
   public int[] getArray() {
@@ -50,6 +53,7 @@ public final class IntArray {
       throw new CustomIntArrayException("Index out of bound");
     }
     this.array[index] = number;
+    notifyObserver();
   }
 
   public long getId() {
@@ -60,10 +64,12 @@ public final class IntArray {
   public void setId(long id) {
     logger.info("setId() called");
     this.id = id;
+    notifyObserver();
   }
 
   @Override
   public boolean equals(Object o) {
+    logger.info("equals(Object o) called");
     if (o == null || getClass() != o.getClass()) return false;
     IntArray intArray = (IntArray) o;
     return id == intArray.id && Objects.deepEquals(array, intArray.array);
@@ -71,11 +77,13 @@ public final class IntArray {
 
   @Override
   public int hashCode() {
+    logger.info("hashCode() called");
     return Objects.hash(id, Arrays.hashCode(array));
   }
 
   @Override
   public String toString() {
+    logger.info("toString called");
     return "IntArray{" +
             "id=" + id +
             ", array=" + Arrays.toString(array) +
@@ -83,6 +91,19 @@ public final class IntArray {
   }
 
   public int getFirstElement() {
+    logger.info("getFirstElement() called");
     return array[0];
+  }
+
+  public void setObserver(IntArrayObserverImpl observer) {
+    logger.info("setObserver(IntArrayObserverImpl observer) called");
+    this.observer = observer;
+  }
+
+  private void notifyObserver() {
+    if (observer != null) {
+      logger.info("Observer notified");
+      observer.update(this);
+    }
   }
 }

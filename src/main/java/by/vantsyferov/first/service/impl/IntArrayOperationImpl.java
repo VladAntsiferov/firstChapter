@@ -1,5 +1,6 @@
 package by.vantsyferov.first.service.impl;
 
+import by.vantsyferov.first.exception.CustomIntArrayException;
 import by.vantsyferov.first.service.IntArrayOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,7 +43,7 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   }
 
   @Override
-  public double sum(int[] intArray) {
+  public double sum(int[] intArray){
     logger.info("Calculating sum of array");
 
     if (intArray == null || intArray.length == 0) {
@@ -55,6 +56,22 @@ public class IntArrayOperationImpl implements IntArrayOperation {
       sum += value;
     }
     return sum;
+  }
+
+  @Override
+  public double average(int[] intArray){
+    logger.info("Calculating average of array");
+    if (intArray == null || intArray.length == 0) {
+      logger.info("Array is null or empty");
+      throw new IllegalArgumentException("Array is null or empty");
+    }
+
+    double sum = 0;
+    for (int value : intArray) {
+      sum += value;
+    }
+
+    return sum / intArray.length;
   }
 
   @Override
