@@ -1,6 +1,7 @@
 package by.vantsyferov.first.service.impl;
 
 import by.vantsyferov.first.exception.CustomIntArrayException;
+import by.vantsyferov.first.exception.CustomIntArrayOperationException;
 import by.vantsyferov.first.service.IntArrayOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,11 +10,11 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   static Logger logger = LogManager.getLogger();
 
   @Override
-  public int max(int[] intArray) {
+  public int max(int[] intArray) throws CustomIntArrayOperationException {
     logger.info("Calculating max of array");
     if (intArray == null || intArray.length == 0) {
       logger.error("Array is null or empty");
-      throw new IllegalArgumentException("Array is null or empty");
+      throw new CustomIntArrayOperationException("Array is null or empty");
     }
 
     int max = intArray[0];
@@ -26,11 +27,11 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   }
 
   @Override
-  public int min(int[] intArray) {
+  public int min(int[] intArray) throws CustomIntArrayOperationException {
     logger.info("Calculating min of array");
     if (intArray == null || intArray.length == 0) {
       logger.info("Array is null or empty");
-      throw new IllegalArgumentException("Array is null or empty");
+      throw new CustomIntArrayOperationException("Array is null or empty");
     }
 
     int min = intArray[0];
@@ -43,12 +44,12 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   }
 
   @Override
-  public double sum(int[] intArray){
+  public double sum(int[] intArray) throws CustomIntArrayOperationException {
     logger.info("Calculating sum of array");
 
     if (intArray == null || intArray.length == 0) {
       logger.info("Array is null or empty");
-      throw new IllegalArgumentException("Array is null or empty");
+      throw new CustomIntArrayOperationException("Array is null or empty");
     }
 
     double sum = 0;
@@ -59,11 +60,11 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   }
 
   @Override
-  public double average(int[] intArray){
+  public double average(int[] intArray) throws CustomIntArrayOperationException {
     logger.info("Calculating average of array");
     if (intArray == null || intArray.length == 0) {
       logger.info("Array is null or empty");
-      throw new IllegalArgumentException("Array is null or empty");
+      throw new CustomIntArrayOperationException("Array is null or empty");
     }
 
     double sum = 0;
@@ -75,11 +76,11 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   }
 
   @Override
-  public int[] bubbleSort(int[] intArray) {
+  public int[] bubbleSort(int[] intArray) throws CustomIntArrayOperationException {
     logger.info("Sorting array using bubble sort");
     if (intArray == null || intArray.length == 0) {
       logger.info("Array is null or empty");
-      throw new IllegalArgumentException("Array is null or empty");
+      throw new CustomIntArrayOperationException("Array is null or empty");
     }
 
     int[] intArrayClone = intArray.clone();
@@ -99,11 +100,11 @@ public class IntArrayOperationImpl implements IntArrayOperation {
   }
 
   @Override
-  public int[] selectionSort(int[] intArray) {
+  public int[] selectionSort(int[] intArray) throws CustomIntArrayOperationException {
     logger.info("Sorting array using selection sort");
     if (intArray == null || intArray.length == 0) {
       logger.info("Array is null or empty");
-      throw new IllegalArgumentException("Array is null or empty");
+      throw new CustomIntArrayOperationException("Array is null or empty");
     }
 
     int[] intArrayClone = intArray.clone();
